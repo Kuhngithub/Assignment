@@ -1,12 +1,15 @@
 /*********************************************************************************
-*  WEB422 – Assignment 6
-*  I declare that this assignment is my own work in accordance with Seneca Academic Policy.  
-*  No part of this assignment has been copied manually or electronically from any other source
-*  (including web sites) or distributed to other students.
+*  WEB422 – Assignment 06
+*  I declare that this assignment is my own work in accordance with Seneca  Academic Policy.  No part of this
+*  assignment has been copied manually or electronically from any other source (including web sites) or 
+*  distributed to other students.
 * 
-*  Name: Festus Osayi Student ID: 170276216 Date: 8-1-2023
+*  Name: __Olakunle Olatunji____________________ Student ID: __161393210____________ Date: ____6th August 2023____________
 *
-********************************************************************************/
+*  Vercel App (Deployed) Link: ______________https://assignment-kuhngithub.vercel.app/_______________________________________
+*
+********************************************************************************/ 
+
 
 import React from 'react';
 import { Container, Row, Col, Image } from 'react-bootstrap';

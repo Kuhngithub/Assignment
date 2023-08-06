@@ -6,17 +6,17 @@ import { registerUser } from "@/lib/authenticate";
 
 export default function Register(props) {
 
-    /** application states */
+   
     const [user, setUser] = useState('');
     const [password, setPassword] = useState('');
     const [password2, setPassword2] = useState('')
     const [warning, setWarning] = useState('');
 
-    /** router */
+  
     const router = useRouter()
 
 
-    /** a function to handle submit */
+   
     const handleSubmit = async (e) => {
         e.preventDefault()
         try {

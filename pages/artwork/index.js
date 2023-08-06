@@ -1,3 +1,16 @@
+/*********************************************************************************
+*  WEB422 – Assignment 06
+*  I declare that this assignment is my own work in accordance with Seneca  Academic Policy.  No part of this
+*  assignment has been copied manually or electronically from any other source (including web sites) or 
+*  distributed to other students.
+* 
+*  Name: __Olakunle Olatunji____________________ Student ID: __161393210____________ Date: ____6th August 2023____________
+*
+*  Vercel App (Deployed) Link: ______________https://assignment-kuhngithub.vercel.app/_______________________________________
+*
+********************************************************************************/ 
+
+
 import React from 'react'
 import useSWR from 'swr'
 import { useState, useEffect } from 'react'
@@ -10,14 +23,7 @@ import validObjectIDList from '@/public/data/validObjectIDList.json'
 
 const PER_PAGE = 12
 const index = () => {
-  /**
-   * todo: - get query params
-   * useRouter hook to get the full value of the query string
-   * "artworkList" (no default value) 
-   * "page" (default value of 1)
-   * Use SWR to make a request to the Metropolican API
-   * with the query string, got from the request sent
-   */
+ 
   const router = useRouter();
   let finalQuery = router.asPath.split('?')[1];
   const [artworkList, setArtworkList] = useState()
@@ -35,27 +41,15 @@ const index = () => {
     }
   }
  
-  /** increase the value of page by 1 (page < artworkList.length) */
   function nextPage() {
     if (page < artworkList.length) {
       setPage(page + 1);
     }
   }
 
-  /**
-   * todo: If data is not null / undefined, populate the result array
-   * with a 2D array of data for paging that we can set in the state as "artworkList"
-   * filter all objectID values in the validObjectIDList such that it only 
-   * contains values that are also returned from our search.  
-   * This has the effect of eliminating objectIDs from our search results that
-   * are not in the validObjectIDList
-   */
-  
-
   useEffect(() => {
     const results = []
     if (data) {
-      /** filter out every valid data object that is in validObjectIDList */
       let filteredResults = validObjectIDList.objectIDs.filter(x => data.objectIDs?.includes(x));
       for (let i = 0; i < filteredResults.length; i += PER_PAGE) {
         const chunk = filteredResults.slice(i, i + PER_PAGE);
@@ -72,13 +66,10 @@ const index = () => {
   }, [data])
 
 
-  // error handling here...
   if (error) {
     return <Error statusCode={404} />
   }
-  /**check if the artworkList' state value is not null / undefined 
-   * if it's defined then render the component
-  */
+
   else if (artworkList) {
     return (
       <>

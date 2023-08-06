@@ -10,23 +10,20 @@ import { favouritesAtom } from "@/store";
 import { searchHistoryAtom } from "@/store";
 import { useAtom } from "jotai";
 export default function Login(props) {
-
-    /** application states */
     const [user, setUser] = useState('');
     const [password, setPassword] = useState('');
     const [warning, setWarning] = useState('');
     const [favouritesList, setFavouritesList] = useAtom(favouritesAtom)
     const[searchHistory, setSearchHistory] = useAtom(searchHistoryAtom)
-    /** router */
+   
     const router = useRouter()
 
-    /** updates both the favourite and artwork lists */
+
     const updateAtoms = async () => {
         setFavouritesList(await getFavourites());
         setSearchHistory(await getHistory())
     }
-    
-    /** a function to handle submit */
+
     const handleSubmit = async (e) => {
         e.preventDefault()
         try {

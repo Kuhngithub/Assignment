@@ -11,44 +11,28 @@ import { favouritesAtom } from '@/store'
 const history = () => {
   const [searchHistory, setSearchHistory] = useAtom(favouritesAtom)
   let parsedHistory = [];
-  /** router to navigate to the specified route */
+  
   const router = useRouter()
-
-  /** generate a list of "parsed" search queries */
   searchHistory?.forEach(h => {
     let params = new URLSearchParams(h);
     let entries = params.entries();
     parsedHistory.push(Object.fromEntries(entries));
   });
 
-  /**
-   *  a function called "historyClicked" that takes two parameters: 
-   * e(the event) and index(a number).
-   * This function must cause the user to navigate
-   * (using the "useRouter" hook) to the page 
-   */
 
   const historyClicked = (e, index) => {
     e.preventDefault()
     router.push(`/artwork?${searchHistory[index]}`)
   }
 
-  /**
-   * to remove an element from the "searchHistory" list
-   */
 
   const removeHistoryClicked = async (e, index) => {
-    e.stopPropagation(); // stop the event from trigging other events
+    e.stopPropagation(); 
     setSearchHistory(await removeFromHistory(searchHistory[index]))
 
   }
 console.log(parsedHistory)
-  /**	
-   * The component must render the "parsedHistory" (created above) in
-   * the component
-   * within the React ListGroup
-   * 
-  */
+
   if (!searchHistory) return null;
   return (
     <>

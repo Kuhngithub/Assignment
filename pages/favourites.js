@@ -6,8 +6,6 @@ import { favouritesAtom } from '@/store'
 import { useAtom } from 'jotai'
 
 const favourite = () => {
-
-    /**states to render the favourites artwork components */
     const [favouriteLists, setFavouriteLists] = useAtom(favouritesAtom)
 
     if (!favouriteLists) return null;
